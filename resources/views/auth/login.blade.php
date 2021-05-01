@@ -12,6 +12,12 @@
                         @csrf
 
                         <div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
+                                <a href="{{route('login.facebook')}}" class="btn btn-primary btn-block">Log In With Facebook</a>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">email or mobile</label>
 
                             <div class="col-md-6">

@@ -29,3 +29,12 @@ Route::get('/home', 'HomeController@index')->name('home')-> middleware('verified
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+// facebook
+
+// Route::get('redirect/{service}', 'SocialController@redirect');
+// Route::get('callback/{service}', 'SocialController@callback');
+
+Route::get('login/facebook', [App\Http\Controllers\SocialController::class,'redirectToFacebook'])->name('login.facebook');
+Route::get('login/facebook/callback', [App\Http\Controllers\SocialController::class,'handleFacebookCallback']);
