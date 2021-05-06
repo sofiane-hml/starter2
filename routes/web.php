@@ -38,3 +38,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('login/facebook', [App\Http\Controllers\SocialController::class,'redirectToFacebook'])->name('login.facebook');
 Route::get('login/facebook/callback', [App\Http\Controllers\SocialController::class,'handleFacebookCallback']);
+
+
+Route::get('filable', 'CrudController@getOffers');
+
+
+Route::group(['prefix'=>'offers'],function () {
+        // route::get('store','CrudController@store');
+
+        route::get('create','CrudController@create');
+        route::post('store','CrudController@store');
+
+});
