@@ -55,15 +55,15 @@ class CrudController extends Controller
         $validator = Validator::make($request->all(),$rules,$messages);
         if ($validator ->fails()) {
             
-            return $validator ->errors()-> first();
+            return redirect()->back()->withErrors($validator)->withInputs($request->all());
         }
 
-            // insert
+            // Insert
              Offer::create([
              'name'=>$request -> name,
              'price'=>$request -> price,
              'details'=>$request -> details,
              ]);
-             return 'donne';
+             
     }
 }

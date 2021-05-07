@@ -92,21 +92,33 @@
                 <form method="POST" action="{{url('offers\store')}}">
                     
                      @csrf   
-                    {{-- <input name="_token" value="{{csrf_token()}}"> --}}
+                    {{-- <!-- <input name="_token" value="{{csrf_token()}}"> --> --}}
+
                     <div class="form-group">
                         <label for="exampleInputEmail">Offer Name</label>
                         <input type="text" class="form-control" name="name" placeholder="Enter email">
+                        @error('name')
+                            <small class="form-text text-danger">{{$message}}</small>
+                        @enderror
                     </div>
+                    
 
                     <div class="form-group">
                         <label for="exampleInputEmail">Offer Price</label>
                         <input type="text" class="form-control" name="price" placeholder="Enter price">
-                    </div>
+                        @error('price')
+                        <small class="form-text text-danger">{{$message}}</small>
+                    @enderror
+                        </div>
 
                     <div class="form-group">
                         <label for="exampleInputEmail">Offer Details</label>
                         <input type="text" class="form-control" name="details" placeholder="Enter details">
+                        @error('details')
+                        <small class="form-text text-danger">{{$message}}</small>
+                    @enderror
                     </div>
+
                     <button type="submit" class="btn btn-dark">Send</button>
 
                 </form>
